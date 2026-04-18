@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-printer-demo"
+version = "0.1.0"
+description = "Strictly typed BLE mini-printer end-to-end demo"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "bleak>=0.22.3",
+  "pillow>=10.0.0",
+]
+
+[project.scripts]
+mini-printer = "mini_printer_demo.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+mini_printer_demo = ["py.typed"]
+
+[project.optional-dependencies]
+dev = [
+  "mypy>=1.11.0",
+  "types-Pillow>=10.2.0.20240822",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+warn_return_any = true
+warn_unreachable = true
+show_error_codes = true
+pretty = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "ASYNC"]
