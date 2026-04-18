@@ -33,13 +33,20 @@ source .venv/bin/activate
 pip install -e .
 ```
 
+or from GH…
+
+````bash
+...
+pip install "mini_printer_demo @ git+https://github.com/ntflix/another-mini-printer-ble-package"
+```
+
 ## Quick start
 
 1. Scan:
 
 ```bash
 mini-printer --scan
-```
+````
 
 On macOS, scanned `address` values might be CoreBluetooth UUIDs, not device MAC addresses. I had some trouble here so mostly just didn't bother scanning and connected with `--name` each time.
 
